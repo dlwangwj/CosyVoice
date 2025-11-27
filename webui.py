@@ -171,7 +171,16 @@ def main():
                               outputs=[audio_output])
         mode_checkbox_group.change(fn=change_instruction, inputs=[mode_checkbox_group], outputs=[instruction_text])
     demo.queue(max_size=4, default_concurrency_limit=2)
-    demo.launch(server_name='0.0.0.0', server_port=args.port)
+    #demo.launch(server_name='0.0.0.0', server_port=args.port)
+    # openssl req -x509 -newkey rsa:2048 -keyout key.pem -out cert.pem -days 365 -nodes
+    demo.launch(
+    server_name="0.0.0.0",
+    server_port=args.port,
+    ssl_keyfile="/home/dlwangwj/CosyVoice_wwj/CosyVoice/key.pem",
+    ssl_certfile="/home/dlwangwj/CosyVoice_wwj/CosyVoice/cert.pem",
+    ssl_verify=False
+    )
+
 
 
 if __name__ == '__main__':
