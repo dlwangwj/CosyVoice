@@ -88,7 +88,7 @@ fi
 
 if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
    echo "Starting Triton server"
-   tritonserver --model-repository $model_repo --allow-http-cors
+   tritonserver --model-repository $model_repo
 fi
 
 if [ $stage -le 4 ] && [ $stop_stage -ge 4 ]; then
