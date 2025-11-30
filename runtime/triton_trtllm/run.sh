@@ -88,7 +88,7 @@ fi
 
 if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
    echo "Starting Triton server"
-   tritonserver --model-repository $model_repo
+   tritonserver --model-repository $model_repo --http-header-forward-pattern ".*"
 fi
 
 if [ $stage -le 4 ] && [ $stop_stage -ge 4 ]; then
